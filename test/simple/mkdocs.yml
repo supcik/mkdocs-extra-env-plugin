@@ -1,0 +1,24 @@
+site_name: Today Plugin Test
+site_description: Test for Today Plugin
+docs_dir: docs
+theme: readthedocs
+
+nav:
+  - Main: index.md
+
+copyright: "&copy; {{ today.year }} Jacques Supcik"
+
+extra:
+  test: "Today is {{ today.strftime('%Y-%m-%d') }}"
+
+plugins:
+  - search
+  - extraenv: # Has to be before macros
+      variables:
+        - LECTURE_SHOW:lecture_show:999
+        - EXAM_SHOW_OBJECTIVES::2
+        - ASSIGNMENT_SHOW_DATA
+        - :assignment_show_solution
+        - DEMO1::This is the default value
+        - DEMO2
+  - macros
